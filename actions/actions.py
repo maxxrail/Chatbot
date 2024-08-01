@@ -3,7 +3,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
 from rasa_sdk.events import SlotSet, ReminderScheduled, ReminderCancelled
-import datetime
+import datetime, requests
 
 class ActionScheduleMeeting(Action):
 
@@ -88,3 +88,67 @@ class ValidateReminderForm(FormValidationAction):
             dispatcher.utter_message(text="The time format is incorrect. Please use HH:MM:SS.")
             return {"time": None}
 
+class ActionGetCurrentTime(Action):
+
+    def name(self) -> Text:
+        return "action_get_current_time"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        location = tracker.get_slot('location')
+        if not location:
+            dispatcher.utter_message(text="Please provide a location to get the current time.")
+            return []
+
+        time_url = f"http://worldtimeapi.org/api/timezone/{location}"
+
+        response = requests.get(time_url)
+        if response.status_code == 200:
+            time_data = response.json()
+            current_time = time_data.get('datetime', 'Time not available')
+            dispatcher.utter_message(text=f"The current time in {location} is {current_time}.")
+        else:
+            dispatcher.utter_message(text="Sorry, I couldn't retrieve the time for that location.")
+
+        return []
+
+class ActionWebSearch(Action):
+
+    def name(self) -> Text:
+        return "action_web_search"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        query = tracker.get_slot('query')
+        if not query:
+            dispatcher.utter_message(text="I need a query to search for.")
+            return []
+
+        search_url = "https://en.wikipedia.org/w/api.php"
+        params = {
+            "action": "query",
+            "format": "json",
+            "list": "search",
+            "srsearch": query
+        }
+
+        response = requests.get(search_url, params=params)
+        response.raise_for_status()
+        search_results = response.json()
+
+        if search_results['query']['search']:
+            first_result = search_results['query']['search'][0]
+            title = first_result['title']
+            snippet = first_result['snippet']
+            page_id = first_result['pageid']
+            page_url = f"https://en.wikipedia.org/?curid={page_id}"
+            response_text = f"Here's what I found on Wikipedia:\n\n{title}\n{snippet}...\nRead more: {page_url}"
+        else:
+            response_text = "Sorry, I couldn't find any information on that topic."
+
+        dispatcher.utter_message(text=response_text)
+        return []

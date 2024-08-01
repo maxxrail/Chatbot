@@ -22,10 +22,12 @@ intents:
   - provide_topic
   - inquire_location
   - inquire_contact
-  - do  # Added the new intent here
+  - do  
+  - ask_time
 
 entities:
   - location
+  - query
   - name
   - company
   - color
@@ -50,6 +52,11 @@ slots:
     mappings:
       - type: from_entity
         entity: location
+  query:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: query
   name:
     type: text
     mappings:
@@ -197,8 +204,12 @@ responses:
     - text: "Hi there! I'm Dango the Dragon. How can I help you today?"
   utter_request_info:
     - text: "What information are you looking for?"
+  utter_ask_location:
+    - text: "For which location do you want the current time?"
 
 actions:
+  - action_web_search
+  - action_get_current_time
   - action_hello_world
   - action_schedule_meeting
   - action_set_reminder

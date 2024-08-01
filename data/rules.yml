@@ -42,11 +42,6 @@ rules:
       - intent: provide_feedback
       - action: utter_provide_feedback
 
-  - rule: Request info
-    steps:
-      - intent: request_info
-      - action: utter_request_info
-
   - rule: Provide location
     steps:
       - intent: provide_location
@@ -135,3 +130,17 @@ rules:
       - action: contact_information_form
       - active_loop: null
       - action: utter_thanks
+
+  - rule: Handle request info
+    steps:
+      - intent: request_info
+        entities:
+          - query
+      - action: action_web_search
+
+  - rule: Handle ask time
+    steps:
+      - intent: ask_time
+        entities:
+          - location
+      - action: action_get_current_time

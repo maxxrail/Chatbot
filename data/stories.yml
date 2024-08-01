@@ -42,20 +42,24 @@ stories:
   - intent: ask_weather
   - action: utter_ask_weather
 
-- story: User requests help
+- story: User requests info
   steps:
   - intent: request_info
-  - action: utter_request_info
+    entities:
+      - query: "Eiffel Tower"
+  - action: action_web_search
+
+- story: Get current time
+  steps:
+  - intent: ask_time
+    entities:
+      - location: "Europe/Paris"
+  - action: action_get_current_time
 
 - story: User provides feedback
   steps:
   - intent: provide_feedback
   - action: utter_provide_feedback
-
-- story: User requests information
-  steps:
-  - intent: request_info
-  - action: utter_request_info
 
 - story: User provides location
   steps:

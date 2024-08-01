@@ -16,6 +16,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     overflow: hidden;
+    position: relative;
 }
 
 .header {
@@ -40,6 +41,7 @@ body {
     margin: 10px 0;
     border-radius: 10px;
     max-width: 80%;
+    position: relative;
 }
 
 .message.user {
@@ -49,11 +51,33 @@ body {
     margin-left: auto;
 }
 
+.message.user::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #00bfff;
+}
+
 .message.bot {
     background-color: #eeeeee;
     color: #333333;
     text-align: left;
     margin-right: auto;
+}
+
+.message.bot::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #eeeeee transparent transparent;
 }
 
 .input-container {
@@ -86,4 +110,66 @@ button {
 
 button:hover {
     background-color: #008fbf;
+}
+
+.dragon-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.dragon {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: dragon-bounce 1s infinite;
+}
+
+.head, .body, .tail, .eye {
+    position: absolute;
+    background-color: #00bfff;
+}
+
+.head {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 10px;
+    left: 30px;
+}
+
+.body {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 40px;
+    left: 20px;
+}
+
+.tail {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 70px;
+    left: 10px;
+}
+
+.eye {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 20px;
+    left: 50px;
+}
+
+@keyframes dragon-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }

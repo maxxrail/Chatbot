@@ -85,15 +85,29 @@ nlu:
 
 - intent: request_info
   examples: |
-    - Can you tell me about [New York](location)?
-    - What is the weather like in [San Francisco](location)?
-    - Tell me more about [Python programming](topic)
-    - Can you provide information about [Google](company)?
-    - What's the population of [Tokyo](location)?
-    - How far is it from [New York](location) to [Los Angeles](location)?
-    - What are the working hours of [Starbucks](business)?
-    - When does [Walmart](business) open?
-    - Can you tell me about the [Eiffel Tower](landmark)?
+    - Can you tell me about [New York](query)?
+    - What is the weather like in [San Francisco](query)?
+    - Tell me more about [Python programming](query)
+    - Can you provide information about [Google](query)?
+    - What's the population of [Tokyo](query)?
+    - How far is it from [New York](query) to [Los Angeles](query)?
+    - What are the working hours of [Starbucks](query)?
+    - When does [Walmart](query) open?
+    - Can you tell me about the [Eiffel Tower](query)?
+    - search the web for [Eiffel Tower](query)
+    - look up [Python programming](query)
+    - find information about [Rasa](query)
+    - can you search for [quantum computing](query)
+    - tell me about [the Great Wall of China](query)
+    
+- intent: ask_time
+  examples: |
+    - what is the current time in [New York](location)?
+    - tell me the time in [London](location)
+    - what's the time now in [Tokyo](location)?
+    - can you get the current time for [Sydney](location)?
+    - what's the local time in [San Francisco](location)?
+    - what time is it in [Paris](location)?
 
 - intent: thanks
   examples: |
@@ -209,7 +223,6 @@ nlu:
 - intent: provide_date
   examples: |
     - The date is [January 1st](date)
-    - My birthday is on [December 25th](date)
     - The meeting is on [July 4th](date)
     - I have an appointment on [March 15th](date)
     - The event is on [November 11th](date)
