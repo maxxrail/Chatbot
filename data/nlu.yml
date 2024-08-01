@@ -1,0 +1,261 @@
+version: "3.1"
+
+nlu:
+- intent: do
+  examples: |
+    - what can you do?
+    - what are your capabilities?
+    - what are you capable of?
+    - what do you do?
+    - what are your functions?
+    - what are your features?
+    - what can you help with?
+    - what are your abilities?
+    - what are your skills?
+    - what are your talents?
+
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey
+    - good morning
+    - good evening
+    - hey there
+    - hi there
+    - hello there
+    - howdy
+    - greetings
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - catch you later
+    - farewell
+    - have a nice day
+    - talk to you later
+    - see ya
+    - later
+    - take care
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - absolutely
+    - definitely
+    - sure
+    - yup
+    - yeah
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - no way
+    - not really
+    - absolutely not
+    - I don't agree
+    - nope
+    - nah
+
+- intent: inform
+  examples: |
+    - I live in [New York](location)
+    - I work at [Google](company)
+    - My favorite color is [blue](color)
+    - My favorite color is [green](color)
+    - I am [30](age) years old
+    - I am [25](age) years old
+    - I was born on [January 1st](birthday)
+    - My birthday is on [December 25th](birthday)
+    - I have a dog named [Rex](pet_name)
+    - My cat's name is [Whiskers](pet_name)
+    - I drive a [Tesla](car_brand)
+    - I drive a [BMW](car_brand)
+    - My hometown is [Boston](location)
+    - The closest landmark is the [Eiffel Tower](landmark)
+    - The [Statue of Liberty](landmark) is nearby
+
+- intent: request_info
+  examples: |
+    - Can you tell me about [New York](location)?
+    - What is the weather like in [San Francisco](location)?
+    - Tell me more about [Python programming](topic)
+    - Can you provide information about [Google](company)?
+    - What's the population of [Tokyo](location)?
+    - How far is it from [New York](location) to [Los Angeles](location)?
+    - What are the working hours of [Starbucks](business)?
+    - When does [Walmart](business) open?
+    - Can you tell me about the [Eiffel Tower](landmark)?
+
+- intent: thanks
+  examples: |
+    - thank you
+    - thanks
+    - much appreciated
+    - thank you very much
+    - thanks a lot
+    - many thanks
+    - I appreciate it
+    - thank you so much
+    - thanks a million
+
+- intent: chitchat
+  examples: |
+    - How are you?
+    - What's up?
+    - How's it going?
+    - How have you been?
+    - How's life?
+    - How are you doing today?
+    - What's new?
+    - How are things?
+    - How's everything?
+
+- intent: ask_weather
+  examples: |
+    - What's the weather like?
+    - Tell me the weather
+    - How's the weather?
+    - Is it going to rain today?
+    - Do I need an umbrella?
+    - What's the weather forecast?
+    - How hot is it outside?
+    - Is it sunny today?
+    - Will it snow tomorrow?
+
+- intent: provide_feedback
+  examples: |
+    - I have some feedback
+    - Can I provide feedback?
+    - I want to give feedback
+    - Here's my feedback
+    - I have some suggestions
+    - Let me give you some feedback
+    - I have a complaint
+    - I'd like to share my thoughts
+
+- intent: schedule_meeting
+  examples: |
+    - I need to schedule a meeting
+    - Can you set up a meeting for me?
+    - Help me schedule a meeting with [John](person)
+    - Schedule a meeting for tomorrow at 10 AM
+    - I want to set up a meeting with [Alice](person)
+    - Arrange a meeting for next Monday
+    - Book a meeting room for me
+    - Set up a conference call with [Bob](person)
+
+- intent: reminder
+  examples: |
+    - Remind me to call [John](person) at 3 PM
+    - Set a reminder for my appointment
+    - Can you remind me about the meeting?
+    - I need a reminder to take my medicine
+    - Remind me to pick up groceries
+    - Set a reminder for my workout at 6 PM
+    - Remind me to water the plants
+    - I need a reminder to pay my bills
+
+- intent: provide_location
+  examples: |
+    - I am at [Central Park](location)
+    - My location is [Empire State Building](location)
+    - I am currently in [New York](location)
+    - I am at the [Eiffel Tower](location)
+    - I am in [San Francisco](location)
+    - My current location is [London](location)
+    - I am near [Statue of Liberty](location)
+    - I'm at [Golden Gate Bridge](location)
+
+- intent: provide_email
+  examples: |
+    - You can contact me at [jane.doe@example.com](email)
+    - My email address is [alice@example.com](email)
+    - Send the details to [bob@example.com](email)
+    - I can be reached at [charlie@example.com](email)
+    - Here's my email: [dave@example.com](email)
+    - My work email is [john.smith@company.com](email)
+    - Contact me at [support@website.com](email)
+
+- intent: provide_phone
+  examples: |
+    - My phone number is [123-456-7890](phone)
+    - You can reach me at [987-654-3210](phone)
+    - My contact number is [555-1234](phone)
+    - Call me at [111-222-3333](phone)
+    - Here's my phone number: [444-555-6666](phone)
+    - My mobile number is [777-888-9999](phone)
+    - Contact me at [999-888-7777](phone)
+    - My office number is [666-555-4444](phone)
+
+- intent: provide_name
+  examples: |
+    - I am [Alice](name)
+    - You can call me [Bob](name)
+    - I am [Charlie](name)
+    - My name is [Dave](name)
+    - I go by [Eve](name)
+    - My full name is [John Smith](name)
+    - People call me [Jim](name)
+
+- intent: provide_date
+  examples: |
+    - The date is [January 1st](date)
+    - My birthday is on [December 25th](date)
+    - The meeting is on [July 4th](date)
+    - I have an appointment on [March 15th](date)
+    - The event is on [November 11th](date)
+    - My anniversary is on [June 20th](date)
+    - I was born on [February 14th](date)
+    - The deadline is [October 31st](date)
+
+- intent: provide_time
+  examples: |
+    - The time is [3 PM](time)
+    - The meeting is at [10 AM](time)
+    - My appointment is at [2:30 PM](time)
+    - The event starts at [7 PM](time)
+    - The reminder is set for [6 AM](time)
+    - I will be there at [5 PM](time)
+    - The flight is at [8:45 PM](time)
+    - My interview is at [9:00 AM](time)
+
+- intent: provide_topic
+  examples: |
+    - Can you tell me about [artificial intelligence](topic)?
+    - I am interested in [data science](topic)
+    - Tell me more about [blockchain technology](topic)
+    - I want information on [cloud computing](topic)
+    - What's new in [cybersecurity](topic)?
+    - Explain [quantum computing](topic) to me
+    - I want to learn about [big data](topic)
+
+- intent: inquire_location
+  examples: |
+    - Where are you located?
+    - What's your address?
+    - Can you tell me your location?
+    - Where is your office?
+    - Where can I find you?
+    - What is your address?
+    - How do I get to your office?
+    - Where is your location?
+
+- intent: inquire_contact
+  examples: |
+    - How can I contact you?
+    - What's your phone number?
+    - Can you give me your contact details?
+    - How do I reach you?
+    - Can you provide your contact information?
+    - What's your email address?
+    - How can I get in touch with you?
+    - What is your contact number?

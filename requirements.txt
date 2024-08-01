@@ -1,0 +1,6 @@
+rasa
+rasa-sdk
+flask
+requests
+urllib3
+chardet

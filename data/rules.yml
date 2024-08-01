@@ -1,0 +1,137 @@
+version: "3.1"
+
+rules:
+  - rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - action: utter_introduce_self
+
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Affirmation
+    steps:
+      - intent: affirm
+      - action: utter_affirm
+
+  - rule: Denial
+    steps:
+      - intent: deny
+      - action: utter_deny
+
+  - rule: Thank the user
+    steps:
+      - intent: thanks
+      - action: utter_thanks
+
+  - rule: Handle chitchat
+    steps:
+      - intent: chitchat
+      - action: utter_chitchat
+
+  - rule: Ask about weather
+    steps:
+      - intent: ask_weather
+      - action: utter_ask_weather
+
+  - rule: Provide feedback
+    steps:
+      - intent: provide_feedback
+      - action: utter_provide_feedback
+
+  - rule: Request info
+    steps:
+      - intent: request_info
+      - action: utter_request_info
+
+  - rule: Provide location
+    steps:
+      - intent: provide_location
+      - action: utter_provide_location
+
+  - rule: Provide email
+    steps:
+      - intent: provide_email
+      - action: utter_provide_email
+
+  - rule: Provide phone
+    steps:
+      - intent: provide_phone
+      - action: utter_provide_phone
+
+  - rule: Provide name
+    steps:
+      - intent: provide_name
+      - action: utter_provide_name
+
+  - rule: Provide date
+    steps:
+      - intent: provide_date
+      - action: utter_provide_date
+
+  - rule: Provide time
+    steps:
+      - intent: provide_time
+      - action: utter_provide_time
+
+  - rule: Provide topic
+    steps:
+      - intent: provide_topic
+      - action: utter_provide_topic
+
+  - rule: Inquire location
+    steps:
+      - intent: inquire_location
+      - action: utter_inquire_location
+
+  - rule: Inquire contact
+    steps:
+      - intent: inquire_contact
+      - action: utter_inquire_contact
+
+  - rule: Schedule a meeting
+    steps:
+      - intent: schedule_meeting
+      - action: meeting_schedule_form
+      - active_loop: meeting_schedule_form
+
+  - rule: Submit meeting schedule form
+    condition:
+      - active_loop: meeting_schedule_form
+    steps:
+      - action: meeting_schedule_form
+      - active_loop: null
+      - action: action_schedule_meeting
+      - action: utter_schedule_meeting
+
+  - rule: Set a reminder
+    steps:
+      - intent: reminder
+      - action: reminder_form
+      - active_loop: reminder_form
+
+  - rule: Submit reminder form
+    condition:
+      - active_loop: reminder_form
+    steps:
+      - action: reminder_form
+      - active_loop: null
+      - action: action_set_reminder
+      - action: utter_reminder
+
+  - rule: Provide contact information
+    steps:
+      - intent: inform
+      - action: contact_information_form
+      - active_loop: contact_information_form
+
+  - rule: Submit contact information form
+    condition:
+      - active_loop: contact_information_form
+    steps:
+      - action: contact_information_form
+      - active_loop: null
+      - action: utter_thanks

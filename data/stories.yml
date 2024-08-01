@@ -1,0 +1,180 @@
+version: "3.1"
+
+stories:
+- story: Greet the user and introduce the bot
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_introduce_self
+
+- story: User asks what the bot can do
+  steps:
+  - intent: do
+  - action: utter_what_can_you_do
+
+- story: Say goodbye to the user
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Affirmation from the user
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- story: Denial from the user
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+- story: User says thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- story: User engages in chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+
+- story: User asks about the weather
+  steps:
+  - intent: ask_weather
+  - action: utter_ask_weather
+
+- story: User requests help
+  steps:
+  - intent: request_info
+  - action: utter_request_info
+
+- story: User provides feedback
+  steps:
+  - intent: provide_feedback
+  - action: utter_provide_feedback
+
+- story: User requests information
+  steps:
+  - intent: request_info
+  - action: utter_request_info
+
+- story: User provides location
+  steps:
+  - intent: provide_location
+    entities:
+      - location: "New York"
+  - action: utter_provide_location
+
+- story: User provides email
+  steps:
+  - intent: provide_email
+    entities:
+      - email: "john.doe@example.com"
+  - action: utter_provide_email
+
+- story: User provides phone number
+  steps:
+  - intent: provide_phone
+    entities:
+      - phone: "123-456-7890"
+  - action: utter_provide_phone
+
+- story: User provides name
+  steps:
+  - intent: provide_name
+    entities:
+      - name: "John"
+  - action: utter_provide_name
+
+- story: User provides date
+  steps:
+  - intent: provide_date
+    entities:
+      - date: "2021-12-25"
+  - action: utter_provide_date
+
+- story: User provides time
+  steps:
+  - intent: provide_time
+    entities:
+      - time: "10:00 AM"
+  - action: utter_provide_time
+
+- story: User provides topic
+  steps:
+  - intent: provide_topic
+    entities:
+      - topic: "machine learning"
+  - action: utter_provide_topic
+
+- story: User inquires about location
+  steps:
+  - intent: inquire_location
+  - action: utter_inquire_location
+
+- story: User inquires about contact information
+  steps:
+  - intent: inquire_contact
+  - action: utter_inquire_contact
+
+- story: User wants to schedule a meeting
+  steps:
+  - intent: schedule_meeting
+  - action: meeting_schedule_form
+  - active_loop: meeting_schedule_form
+  - intent: inform
+    entities:
+      - person: "John"
+  - action: meeting_schedule_form
+  - active_loop: meeting_schedule_form
+  - intent: inform
+    entities:
+      - date: "2022-01-01"
+  - action: meeting_schedule_form
+  - active_loop: meeting_schedule_form
+  - intent: inform
+    entities:
+      - time: "10:00 AM"
+  - action: meeting_schedule_form
+  - active_loop: meeting_schedule_form
+  - intent: inform
+    entities:
+      - topic: "Project Planning"
+  - action: meeting_schedule_form
+  - active_loop: null
+  - action: action_schedule_meeting
+  - action: utter_schedule_meeting
+
+- story: User wants to set a reminder
+  steps:
+  - intent: reminder
+  - action: reminder_form
+  - active_loop: reminder_form
+  - intent: inform
+    entities:
+      - reminder: "Call John"
+  - action: reminder_form
+  - active_loop: reminder_form
+  - intent: inform
+    entities:
+      - date: "2022-01-01"
+  - action: reminder_form
+  - active_loop: reminder_form
+  - intent: inform
+    entities:
+      - time: "10:00 AM"
+  - action: reminder_form
+  - active_loop: null
+  - action: action_set_reminder
+  - action: utter_reminder
+
+- story: User provides contact information
+  steps:
+  - intent: inform
+    entities:
+      - name: "John"
+      - email: "john.doe@example.com"
+      - phone: "123-456-7890"
+  - action: contact_information_form
+  - active_loop: contact_information_form
+  - active_loop: null
+  - action: utter_thanks

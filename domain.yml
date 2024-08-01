@@ -1,0 +1,232 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - inform
+  - request_info
+  - thanks
+  - chitchat
+  - ask_weather
+  - provide_feedback
+  - schedule_meeting
+  - reminder
+  - provide_location
+  - provide_email
+  - provide_phone
+  - provide_name
+  - provide_date
+  - provide_time
+  - provide_topic
+  - inquire_location
+  - inquire_contact
+  - do  # Added the new intent here
+
+entities:
+  - location
+  - name
+  - company
+  - color
+  - age
+  - birthday
+  - email
+  - pet_name
+  - car_brand
+  - topic
+  - business
+  - landmark
+  - destination
+  - recipient
+  - person
+  - date
+  - time
+  - phone
+
+slots:
+  location:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: location
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  company:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: company
+  color:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: color
+  age:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: age
+  birthday:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: birthday
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+  pet_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: pet_name
+  car_brand:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: car_brand
+  topic:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: topic
+  business:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: business
+  landmark:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: landmark
+  destination:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: destination
+  recipient:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: recipient
+  person:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: person
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+  time:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: time
+  phone:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone
+  feedback:
+    type: text
+    mappings:
+      - type: from_text
+  reminder:
+    type: text
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+  utter_affirm:
+    - text: "Great!"
+  utter_deny:
+    - text: "Okay, no problem."
+  utter_thanks:
+    - text: "You're welcome!"
+  utter_chitchat:
+    - text: "I'm just a dragon, but I'm here to help!"
+  utter_ask_weather:
+    - text: "The weather is great today!"
+  utter_provide_feedback:
+    - text: "Thank you for your feedback!"
+  utter_schedule_meeting:
+    - text: "When and with whom would you like to schedule the meeting?"
+  utter_reminder:
+    - text: "What would you like me to remind you about and when?"
+  utter_provide_location:
+    - text: "Your current location has been noted."
+  utter_provide_email:
+    - text: "Got it, your email has been recorded."
+  utter_provide_phone:
+    - text: "Thank you, your phone number has been noted."
+  utter_provide_name:
+    - text: "Nice to meet you, {name}!"
+  utter_provide_date:
+    - text: "The date has been noted."
+  utter_provide_time:
+    - text: "The time has been noted."
+  utter_provide_topic:
+    - text: "Sure, I can tell you more about {topic}."
+  utter_inquire_location:
+    - text: "We are located in Montreal, Canada."
+  utter_inquire_contact:
+    - text: "You can contact us at (289) 380-6299 or email us at maxxrailton@gmail.com."
+  utter_what_can_you_do:
+    - text: |
+        I can help you with a variety of tasks, including:
+        - Greeting you and saying goodbye
+        - Providing weather updates
+        - Scheduling meetings
+        - Setting reminders
+        - Providing information about locations, emails, phone numbers, names, dates, times, and topics
+        - Answering questions about our location and contact information
+        - And much more! Just ask and I'll do my best to assist you.
+  utter_introduce_self:
+    - text: "Hi there! I'm Dango the Dragon. How can I help you today?"
+  utter_request_info:
+    - text: "What information are you looking for?"
+
+actions:
+  - action_hello_world
+  - action_schedule_meeting
+  - action_set_reminder
+
+forms:
+  feedback_form:
+    required_slots:
+      - feedback
+
+  meeting_schedule_form:
+    required_slots:
+      - person
+      - date
+      - time
+      - topic
+
+  reminder_form:
+    required_slots:
+      - reminder
+      - date
+      - time
+
+  contact_information_form:
+    required_slots:
+      - name
+      - email
+      - phone
+
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true
