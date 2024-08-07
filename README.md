@@ -3,7 +3,7 @@
 This project is a basic chatbot built using RASA NLU and Core, with custom actions served through a Flask web server.
 
 ## Project Structure
-
+```
 rasa_chatbot/
 │
 ├── actions/
@@ -20,7 +20,7 @@ rasa_chatbot/
 ├── endpoints.yml
 ├── index.html
 └── requirements.txt
-
+```
 
 ### Directory and File Descriptions
 
