@@ -77,9 +77,14 @@ Go to http://localhost:8000 to begin chatting with chatbot
 
 ### 1. Editing NLU, Stories and Domain
 
-Stop the server edit the files and rerun server
-
+Stop the server edit the files: **`data/nlu.yml`**, **`data/stories.yml`** or **`domain.yml`** and retrain and rerun server:
+```
+rasa train
+rasa run --enable-api --cors "http://localhost:8000"
+```
 ### 2. Editing Actions
 
-Stop the actions server, edit actions files and rerun actions server
-
+Stop the actions server, edit actions files and rerun actions server:
+```
+rasa run actions
+```
