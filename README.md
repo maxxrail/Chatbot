@@ -4,22 +4,22 @@ This project is a basic chatbot built using RASA NLU and Core, with custom actio
 
 ## Project Structure
 
-rasa_chatbot/< br / >
-│< br / >
-├── actions/< br / >
-│ ├── init.py< br / >
-│ └── actions.py< br / >
-├── data/< br / >
-│ ├── nlu.yml< br / >
-│ └── stories.yml< br / >
-├── models/< br / >
-│ └── 20230801-123456.tar.gz< br / >
-├── domain.yml< br / >
-├── config.yml< br / >
-├── credentials.yml< br / >
-├── endpoints.yml< br / >
-├── index.html< br / >
-└── requirements.txt< br / >
+rasa_chatbot/
+│
+├── actions/
+│ ├── init.py
+│ └── actions.py
+├── data/
+│ ├── nlu.yml
+│ └── stories.yml
+├── models/
+│ └── 20230801-123456.tar.gz
+├── domain.yml
+├── config.yml
+├── credentials.yml
+├── endpoints.yml
+├── index.html
+└── requirements.txt
 
 
 ### Directory and File Descriptions
