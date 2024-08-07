@@ -43,33 +43,31 @@ rasa_chatbot/
 ## Setup Instructions to Run Locally
 
 ### 1. Clone the Repository
-
 ```sh
 git clone https://github.com/maxxrail/rasa_chatbot.git
 cd rasa_chatbot
 
 ### 2. Install Dependencies
-
-```sh
 pip install -r requirements.txt
-
 
 ### 3. Train Model
 Train the RASA model using the training data provided in **`data/nlu.yml`** and **`data/stories.yml`**:
-```sh
 rasa train
-
-### 4. Run Server
-Start the RASA server to handle incoming messages:
-```sh
-rasa run --enable-api --cors "http://localhost:8000"
 
 ### 5. Run Acton Server
 In a separate terminal, start the RASA action server to handle custom actions:
-```sh
 rasa run actions
 
-### 6. Run App
-In another separate terminal, Serve the web interface:
-```sh
-python -m http.server
+### 4. Run Server
+Start the RASA server to handle incoming messages:
+rasa run --enable-api --cors "http://localhost:8000"
+
+### 5. Open Webpage
+Go to http://localhost:8000 to begin chatting with chatbot
+
+## Editing Domain, NLU, Stories and Actions
+### 1. Editing NLU, Stories and Domain
+Stop the server edit the files and rerun server
+
+### 2. Editing Actions
+Stop the actions server, edit actions files and rerun actions server
