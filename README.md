@@ -52,31 +52,34 @@ cd rasa_chatbot
 pip install -r requirements.txt
 ```
 ### 3. Train Model
-```
+
 Train the RASA model using the training data provided in **`data/nlu.yml`** and **`data/stories.yml`**:
+```
 rasa train
 ```
 ### 5. Run Acton Server
-```
+
 In a separate terminal, start the RASA action server to handle custom actions:
+```
 rasa run actions
 ```
 ### 4. Run Server
-```
+
 Start the RASA server to handle incoming messages:
+```
 rasa run --enable-api --cors "http://localhost:8000"
 ```
 ### 5. Open Webpage
-```
+
 Go to http://localhost:8000 to begin chatting with chatbot
-```
+
 ## Editing Domain, NLU, Stories and Actions
 
 ### 1. Editing NLU, Stories and Domain
-```
+
 Stop the server edit the files and rerun server
-```
+
 ### 2. Editing Actions
-```
+
 Stop the actions server, edit actions files and rerun actions server
-```
+
